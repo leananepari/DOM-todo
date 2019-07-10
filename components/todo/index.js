@@ -21,7 +21,7 @@ class Todos {
         // Add a todo element to the container, and instantiate its class
     }
 }
-
+  
 class Todo {
     constructor(todoElement) {
         this.todoElement = todoElement;
