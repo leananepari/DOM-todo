@@ -46,13 +46,35 @@ class TodoForm {
         this.todos = todos;
         this.input = this.formElement.querySelector('input');
         this.addButton = this.formElement.querySelector('.add');
+        this.clearButton = document.querySelector('.clear');
 
-        this.addButton.addEventListener('click', (e) => {e.preventDefault(); this.submitTodo()});
+        this.addButton.addEventListener('click', (e) => {
+          e.preventDefault(); 
+          this.submitTodo();
+        });
         // stretch - make a button clear all completed todos
-        // this.clearButton;
+        this.clearButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.clearCompletedTodos();
+        })
+
         
         // https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event
     }
+
+    clearCompletedTodos() {
+      // console.log(this.todos.containerElement)
+      let todos = this.todos.containerElement.getElementsByTagName('p');
+      
+      todos = Array.from(todos)
+      console.log(todos)
+      todos.forEach(elem => {
+        if(elem.classList.contains('done')) {
+          this.todos.containerElement.removeChild(elem);
+        }
+      })
+    }
+
     submitTodo() {
       
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
