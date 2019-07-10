@@ -63,9 +63,7 @@ class TodoForm {
     }
 
     clearCompletedTodos() {
-      // console.log(this.todos.containerElement)
       let todos = this.todos.containerElement.getElementsByTagName('p');
-      
       todos = Array.from(todos)
       console.log(todos)
       todos.forEach(elem => {
